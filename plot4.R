@@ -1,7 +1,11 @@
-#download the data
-fileUrl<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
-download.file(fileUrl, destfile = "Raw_Data.zip", method = "curl")
-unzip("Raw_Data.zip") #unzip the file
+#First to check wheather the file was downloaded
+if (!file.exists("household_power_consumption.txt"))
+{
+        #download the data
+        fileUrl<-"https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+        download.file(fileUrl, destfile = "Raw_Data.zip", method = "curl")
+        unzip("Raw_Data.zip") #unzip the file
+}
 
 #Load the data
 raw_data <- read.table("household_power_consumption.txt", sep=";",stringsAsFactors=FALSE,
